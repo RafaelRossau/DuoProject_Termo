@@ -1,3 +1,184 @@
-.input_block{
-    width: 10px;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
+
+/* FUNDO GERAL */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1a1625 0%, #0d0b14 70%);
+    color: #fff;
+}
+
+/* CONTAINER */
+#div_dad {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD PRINCIPAL */
+#fieldset_principal {
+    background: rgba(20, 18, 28, 0.95);
+    border: 1px solid #2e2640;
+    border-radius: 20px;
+    padding: 45px 50px;
+    width: 460px;
+    box-shadow: 
+        0 0 60px rgba(0, 0, 0, 0.8),
+        0 0 25px rgba(140, 0, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+
+#fieldset_principal:hover {
+    box-shadow: 
+        0 0 70px rgba(0, 0, 0, 0.9),
+        0 0 35px rgba(170, 0, 255, 0.25);
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#title h3 {
+    font-size: 32px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a855f7, #d946ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#input_text {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#guess {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #3a2d55;
+    background-color: #14121c;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#guess:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+}
+
+
+button {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(168, 85, 247, 0.5);
+}
+
+
+#game {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+
+#game > div {
+    display: flex;
+    gap: 14px;
+}
+
+.input_block {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    border: 2px solid #32264d;
+    background-color: #14121c;
+    color: white;
+    text-transform: uppercase;
+    outline: none;
+    transition: 0.2s;
+}
+
+
+.input_block:hover {
+    border-color: #6b21a8;
+}
+
+
+.input_block:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
+}
+
+.input_block:not(:placeholder-shown),
+.input_block:valid {
+    animation: pop 0.15s ease-in-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+
+@media (max-width: 500px) {
+    #fieldset_principal {
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    .input_block {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    #title h3 {
+        font-size: 24px;
+    }
+}
+
+body {
+  cursor: url("Arrow.cur"), auto;
+}
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: url("Hand.cur"), pointer;
+}
+input[type="text"],
+textarea {
+  cursor: url("IBeam_v2.cur"), auto;
+}
+
