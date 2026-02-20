@@ -1,22 +1,3 @@
-function start_game(){
-    const words = ["Brisa", "Canto", "Digno", "Forte", "Gesto", "Honra", "Jovem", "Livre", "Mente", "Nobre", "Oeste", "Plano", "Quase", "Sábio", "Tempo", "União", "Vento", "Zebra", "Valor", "Peixe"]
-    const randomNumber = Math.floor(Math.random() * words.length);
-    const randomWord = words[randomNumber]
-
-
-    const squareOne = randomWord[0]
-    const squareTwo = randomWord[1]
-    const squareThree = randomWord[2]
-    const squareFour = randomWord[3]
-    const squareFive = randomWord[4]
-
-    console.log(randomWord)
-    console.log(squareOne)
-    console.log(squareTwo)
-}
-
-
-function player_guess(){
     const square1 = document.getElementById("square1")
     const square2 = document.getElementById("square2")
     const square3 = document.getElementById("square3")
@@ -48,7 +29,35 @@ function player_guess(){
     const square29 = document.getElementById("square29")
     const square30 = document.getElementById("square30")
 
+    const div = document.getElementById("input_text")
+
+
+    let wordarr = []
+
+function start_game(){
+    
+    const words = ["brisa", "canto", "digno", "forte", "gesto", "honra", "jovem", "livre", "mente", "nobre", "oeste", "plano", "quase", "sabio", "tempo", "uniao", "vento", "zebra", "valor", "peixe"]
+    const randomNumber = Math.floor(Math.random() * words.length);
+    const randomWord = words[randomNumber]
+
+
+    const squareOne = randomWord[0]
+    const squareTwo = randomWord[1]
+    const squareThree = randomWord[2]
+    const squareFour = randomWord[3]
+    const squareFive = randomWord[4]
+
+    wordarr = [squareOne, squareTwo, squareThree, squareFour, squareFive]
+}
+start_game()
+function player_guess(){
+    
     const guess = document.getElementById("guess").value
+    let verification1 = false
+    let verification2 = false
+    let verification3 = false
+    let verification4 = false
+    let verification5 = false
 
     const squareOne2 = guess[0]
     const squareTwo2 = guess[1]
@@ -56,7 +65,183 @@ function player_guess(){
     const squareFour2 = guess[3]
     const squareFive2 = guess[4]
 
-
-
-
+    if(wordarr[0] == squareOne2){
+        square1.style.backgroundColor = "green"
+        square1.value = squareOne2
+        verification1 = true
+    }
+    else if(wordarr[0].includes(squareOne2)){
+        square1.style.backgroundColor = "yellow"
+        square1.value = squareOne2
+        verification1 = false
+    }
+    else{
+        square1.value = squareOne2
+        verification1 = false
+    }
+    if(wordarr[1] == squareTwo2){
+        square2.style.backgroundColor = "green"
+        square2.value = squareTwo2
+        verification2 = true
+    }
+    else if(wordarr[1].includes(squareTwo2)){
+        square2.style.backgroundColor = "yellow"
+        square2.value = squareTwo2
+        verification2 = false
+    }
+    else{
+    square2.value = squareTwo2
+    verification2 = false
+    }
+    if(wordarr[2] == squareThree2){
+        square3.style.backgroundColor = "green"
+        square3.value = squareThree2
+        verification3 = true
+    }
+    else if(wordarr[0].includes(squareThree2)){
+        square3.style.backgroundColor = "yellow"
+        square3.value = squareThree2
+        verification3 = false
+    }
+    else{
+        square3.value = squareThree2
+        verification3 = false
+    }
+    if(wordarr[3] == squareFour2){
+        square4.style.backgroundColor = "green"
+        square4.value = squareFour2
+        verification4 = true
+    }
+    else if(wordarr[3].includes(squareFour2)){
+        square4.style.backgroundColor = "yellow"
+        square4.value = squareFour2
+        verification4 = false
+    }
+    else{
+        square4.value = squareFour2
+        verification4 = false
+    }
+    if(wordarr[4] == squareFive2){
+        square5.style.backgroundColor = "green"
+        square5.value = squareFive2
+        verification5 = true
+    }
+    else if(wordarr[4].includes(squareFive2)){
+        square5.style.backgroundColor = "yellow"
+        square5.value = squareFive2
+        verification5 = false
+    }
+    else{
+        square5.value = squareFive2
+        verification5 = false
+    }
+    if(verification1 == true && verification2 == true && verification3 == true && verification4 == true && verification5 == true){
+        alert("Parabéns você ganhou!")
+    }
+    else{
+        let try2 = document.createElement("input")
+        try2.type = "text"
+        try2.id = "try2"
+        div.appendChild(try2)
+        let button2 = document.createElement("button")
+        button2.onclick = trying2()
+    }
 }
+function trying2(){
+    let verification1 = false
+    let verification2 = false
+    let verification3 = false
+    let verification4 = false
+    let verification5 = false
+
+    const squareOne2 = try2[0]
+    const squareTwo2 = try2[1]
+    const squareThree2 = try2[2]
+    const squareFour2 = try2[3]
+    const squareFive2 = try2[4]
+
+    if(wordarr[0] == squareOne2){
+        square6.style.backgroundColor = "green"
+        square6.value = squareOne2
+        verification1 = true
+    }
+    else if(wordarr[0].includes(squareOne2)){
+        square6.style.backgroundColor = "yellow"
+        square6.value = squareOne2
+        verification1 = false
+    }
+    else{
+        square6.value = squareOne2
+        verification1 = false
+    }
+    if(wordarr[1] == squareTwo2){
+        square7.style.backgroundColor = "green"
+        square7.value = squareTwo2
+        verification2 = true
+    }
+    else if(wordarr[1].includes(squareTwo2)){
+        square7.style.backgroundColor = "yellow"
+        square7.value = squareTwo2
+        verification2 = false
+    }
+    else{
+    square7.value = squareTwo2
+    verification2 = false
+    }
+    if(wordarr[2] == squareThree2){
+        square8.style.backgroundColor = "green"
+        square8.value = squareThree2
+        verification3 = true
+    }
+    else if(wordarr[0].includes(squareThree2)){
+        square8.style.backgroundColor = "yellow"
+        square8.value = squareThree2
+        verification3 = false
+    }
+    else{
+        square8.value = squareThree2
+        verification3 = false
+    }
+    if(wordarr[3] == squareFour2){
+        square9.style.backgroundColor = "green"
+        square9.value = squareFour2
+        verification4 = true
+    }
+    else if(wordarr[3].includes(squareFour2)){
+        square9.style.backgroundColor = "yellow"
+        square9.value = squareFour2
+        verification4 = false
+    }
+    else{
+        square9.value = squareFour2
+        verification4 = false
+    }
+    if(wordarr[4] == squareFive2){
+        square10.style.backgroundColor = "green"
+        square10.value = squareFive2
+        verification5 = true
+    }
+    else if(wordarr[4].includes(squareFive2)){
+        square10.style.backgroundColor = "yellow"
+        square10.value = squareFive2
+        verification5 = false
+    }
+    else{
+        square10.value = squareFive2
+        verification5 = false
+    }
+    if(verification1 == true && verification2 == true && verification3 == true && verification4 == true && verification5 == true){
+        alert("Parabéns você ganhou!")
+    }
+    else{
+        let try2 = document.createElement("input")
+        try2.type = "text"
+        try2.id = "try2"
+        div.appendChild(try2)
+        let button2 = document.createElement("button")
+        button2.onclick = trying2()
+    }
+}
+
+
+console.log(wordarr)
